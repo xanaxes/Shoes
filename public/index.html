@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneaker Inventory Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>👟 Nicks Sneaker Inventory Dashboard</h1>
+            <p>Sneaker inventory and profit metrics</p>
+        </header>
+
+        <div id="alert-container"></div>
+
+        <div class="content">
+            <!-- Add New Sneaker Card -->
+            <div class="card">
+                <h2>Add New Sneaker</h2>
+                <form id="addForm">
+                    <div class="form-group">
+                        <label for="sku">SKU</label>
+                        <input type="text" id="sku" name="sku" placeholder="e.g., SK12345" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="model">Model</label>
+                        <input type="text" id="model" name="model" placeholder="e.g., Nike Air Max 90" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="size">Size</label>
+                        <input type="number" id="size" name="size" step="0.5" placeholder="e.g., 10.5" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="condition">Condition</label>
+                        <select id="condition" name="condition" required>
+                            <option value="">Select condition...</option>
+                            <option value="New">New</option>
+                            <option value="Like New">Like New</option>
+                            <option value="Used">Used</option>
+                            <option value="Fair">Fair</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="purchase_price">Purchase Price ($)</label>
+                        <input type="number" id="purchase_price" name="purchase_price" step="0.01" placeholder="e.g., 80.00" required>
+                    </div>
+                    <button type="submit">Add Sneaker</button>
+                </form>
+            </div>
+
+            <!-- Summary Card -->
+            <div class="card">
+                <h2>Summary</h2>
+                <div class="summary-cards">
+                    <div class="summary-card">
+                        <h3>Total Items</h3>
+                        <div class="value" id="totalItems">0</div>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Sourced</h3>
+                        <div class="value" id="totalSourced">0</div>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Sold</h3>
+                        <div class="value" id="totalSold">0</div>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Total Profit</h3>
+                        <div class="value" id="totalProfit">$0.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inventory Table Card -->
+        <div class="card">
+            <h2>Inventory</h2>
+            <div id="inventory-container">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Loading inventory...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
